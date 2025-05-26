@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Šķūninga Izstāde | Latvijas Auto Entuziastu Pasākums</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E63946;
+            --secondary: #1D3557;
+            --accent: #A8DADC;
+            --light: #F1FAEE;
+            --dark: #0A192F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+                        url('https://images.unsplash.com/photo-1514316703785-8b8a75509248?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--secondary);
+        }
+        
+        /* Countdown */
+        .countdown {
+            background-color: var(--secondary);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        /* About */
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Activities */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .activity-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .activity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .activity-card:hover .activity-image img {
+            transform: scale(1.1);
+        }
+        
+        .activity-content {
+            padding: 20px;
+        }
+        
+        .activity-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Awards */
+        .awards-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .award-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .award-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .award-icon i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        /* Entry */
+        .entry {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .entry h2 {
+            color: white;
+        }
+        
+        .entry p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Sponsors */
+        .sponsors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .sponsor-item {
+            max-width: 200px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .sponsor-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .sponsor-item img {
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Contact Form */
+        .contact-form-container {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .form-container {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #c1121f;
+        }
+        
+        /* Google Maps */
+        .map-container {
+            flex: 1;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* QR Code */
+        .qr-section {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--accent);
+        }
+        
+        .qr-container {
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                margin-top: 30px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+            
+            .countdown-container {
+                flex-wrap: wrap;
+            }
+            
+            .contact-form-container {
+                flex-direction: column;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><span>ŠĶŪNINGS</span></a>
+            <nav class="nav-links">
+                <a href="#about">Par izstādi</a>
+                <a href="#activities">Aktivitātes</a>
+                <a href="#awards">Balvas</a>
+                <a href="#sponsors">Sponsori</a>
+                <a href="#contact">Kontakti</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Auto Šķūninga Izstāde 2025</h1>
+                <p>Auto entuziastu pasākums, kurā pulcējas auto tūninga meistari un skaistākie eksemplāri no visas Latvijas!</p>
+                <div>
+                    <a href="#registration" class="btn">Pieteikties</a>
+                    <a href="#activities" class="btn btn-outline">Aktivitātes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="countdown">
+        <div class="container">
+            <h2>Pasākums sākas pēc:</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Dienas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Stundas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minūtes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Sekundes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Par izstādi</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Latvijas auto kultūras svētki</h3>
+                    <p>Auto Skūninga Izstāde ir ikgadējs pasākums, kas pulcē auto entuziastus no visas valsts.</p>
+                    <p>Pasākuma laikā varēsiet apskatīt gan klasiskos auto, gan modernus tūninga šedevrus, kā arī piedalīties dažādās aktivitātēs un konkursos. Īpaša uzmanība šogad tiks pievērsta bērnu programmai un motosporta entuziastiem.</p>
+                    <p><strong>Vieta:</strong> Valmiera, Vāverlaukums</p>
+                    <p><strong>Laiks:</strong> 2025. gada 7. jūnijs, 13:00-18:00</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Auto izstāde">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="section" id="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Aktivitātes</h2>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Riepu ripināšana</h3>
+                        <p>Riepu ripināšana 2. metri, uz sacensībām</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Pirmā medicīniskā</h3>
+                        <p>Pirmās medicīniskās palīdzības (apgriešana uz sānu), kā arī izvilkšana no auto, aptieciņas nosaukšana</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Trijstūra novietošana</h3>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Virsbūves detaļas</h3>
+                        <p>Auto virsbūves detaļu nosaukumi</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Riepu mešana</h3>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Auto šova">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Auto pulēšana</h3>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Motociklu izstāde">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Salona tīrīšana</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section" id="awards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nominācijas un balvas</h2>
+            </div>
+            <div class="awards-list">
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3>Izgaismotākā</h3>
+                        <p>Galvenā balva par izgaismotāko auto pasākumā.</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div>
+                        <h3>Zemākā</h3>
+                        <p>Balva par zemāko auto.</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div>
+                        <h3>Augstākā</h3>
+                        <p>Balva par augstāko auto.</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div>
+                        <h3>Audio sistēma</h3>
+                        <p>Balva par skaļāko audio sistēmu.</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div>
+                        <h3>Izplūde</h3>
+                        <p>Balva par skaļāko izplūdi.</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div>
+                        <h3>Skatītāju favorīts</h3>
+                        <p>Balva par skatītāju favorītu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entry Section -->
+    <section class="entry" id="entry">
+        <div class="container">
+            <h2>Ieeja uz pasākumu</h2>
+            <p>Ieejas maksa ir ziedojums 5€, kas tiks novirzīta "Midnight Runners" Kluba attīstībai un nākotnes pasākumu organizēšanai. Bērniem līdz 12 gadu vecumam - ieeja bez maksas!</p>
+            <p>Auto dalībniekiem ieeja bez maksas (obligāta iepriekšēja pieteikšanās).</p>
+            <a href="#registration" class="btn">Pieteikties kā dalībnieks</a>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="section" id="registration">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pieteikšanās izstādei</h2>
+            </div>
+            <div class="contact-form-container">
+                <div class="form-container">
+                    <form id="registrationForm" action="https://formspree.io/f/midnightrunners96@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Vārds, Uzvārds*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-pasts*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefona numurs*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="participation">Dalības veids*</label>
+                            <select id="participation" name="participation" required>
+                                <option value="">Izvēlieties...</option>
+                                <option value="visitor">Viesis (apmeklētājs)</option>
+                                <option value="exhibitor">Izstādītājs (ar auto)</option>
+                                <option value="sponsor">Sponsors</option>
+                                <option value="volunteer">Brīvprātīgais</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="carDetailsGroup" style="display: none;">
+                            <label for="carDetails">Auto dati (marka, modelis, gads, modifikācijas)</label>
+                            <textarea id="carDetails" name="carDetails"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Jūsu jautājumi vai komentāri</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Nosūtīt pieteikumu</button>
+                    </form>
+                </div>
+                <div class="map-container">
+                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2039.615911335044!2d25.53641207718748!3d57.54062267354409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ebf9b1a9b4a2a1%3A0x7c9a5d1a1a1a1a1!2sV%C4%81verlaukums%2C%20Valmiera%2C%20LV-4201!5e0!3m2!1slv!2slv!4v1620000000000!5m2!1slv!2slv" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="section" id="sponsors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mūsu sponsori</h2>
+            </div>
+            <div class="sponsors-grid">
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+1" alt="Sponsors 1">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+2" alt="Sponsors 2">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+3" alt="Sponsors 3">
+                </div>
+                <div class="sponsor-item">
+                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+4" alt="Sponsors 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Section -->
+    <section class="qr-section" id="qr">
+        <div class="container">
+            <h2>Skenējiet QR kodu, lai saglabātu pasākuma informāciju</h2>
+            <div class="qr-container">
+                <div class="qr-code">
+                    ej.uz/skunings
+                </div>
+                <p>Auto Šķūninga Izstāde 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakti</h2>
+            </div>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 30px;">Vai jums ir jautājumi par pasākumu? Sazinieties ar mums!</p>
+                <div style="display: flex; justify-content: center; gap: 50px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="margin-bottom: 10px;">E-pasts</h3>
+                        <p>midnightrunners96@gmail.com</p>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 10px;">Telefons</h3>
+                        <p>+371 22320238</p>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 10px;">Sociālie tīkli</h3>
+                        <p>@midnightrunnerslatvija</p>
+                    </div>
+                </div>
+                <a href="#registration" class="btn">Reklāmas iespējas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo"><span>ŠĶŪNINGS</span></div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2025 Auto Šķūninga Izstāde. Visas tiesības aizsargātas.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-06-7T13:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerhtml = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('days').innerHTML = '00';
+                document.getElementById('hours').innerHTML = '00';
+                document.getElementById('minutes').innerHTML = '00';
+                document.getElementById('seconds').innerHTML = '00';
+            }
+        }
+        
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Show/hide car details field based on participation type
+        document.getElementById('participation').addEventListener('change', function() {
+            const carDetailsGroup = document.getElementById('carDetailsGroup');
+            if (this.value === 'exhibitor') {
+                carDetailsGroup.style.display = 'block';
+            } else {
+                carDetailsGroup.style.display = 'none';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Simple validation
+            if (!formData.get('name') || !formData.get('email') || !formData.get('phone') || !formData.get('participation')) {
+                alert('Lūdzu, aizpildiet visus obligātos laukus!');
+                return;
+            }
+            
+            // Send form data using Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
