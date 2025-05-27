@@ -499,38 +499,390 @@
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                width: 100%;
-                margin-top: 30px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 15px;
-                display: block;
-            }
-            
-            .countdown-container {
-                flex-wrap: wrap;
-            }
-            
-            .contact-form-container {
-                flex-direction: column;
-            }
-            
-            .map-container {
-                height: 300px;
-            }
-        }
+        /* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    /* Vispārējie pielāgojumi */
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Header */
+    header {
+        padding: 15px 0;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Hero section */
+    .hero {
+        height: 70vh;
+        padding: 0 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .btn, .btn-outline {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+    
+    .btn-outline {
+        margin-left: auto;
+    }
+    
+    /* Countdown */
+    .countdown-container {
+        gap: 10px;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 10px;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    
+    /* Sections */
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* About */
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-image {
+        height: 250px;
+        width: 100%;
+    }
+    
+    /* Activities */
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Awards */
+    .award-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    /* Entry section */
+    .entry {
+        padding: 40px 0;
+    }
+    
+    /* Contact Form */
+    .contact-form-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .form-container, .map-container {
+        width: 100%;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    /* Sponsors */
+    .sponsors-grid {
+        gap: 20px;
+    }
+    
+    .sponsor-item {
+        max-width: 120px;
+    }
+    
+    /* QR Code */
+    .qr-code {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 30px 0;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    /* Vispārējie pielāgojumi */
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Header */
+    header {
+        padding: 15px 0;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Hero section */
+    .hero {
+        height: 70vh;
+        padding: 0 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .btn, .btn-outline {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+    
+    .btn-outline {
+        margin-left: auto;
+    }
+    
+    /* Countdown */
+    .countdown-container {
+        gap: 10px;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 10px;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    
+    /* Sections */
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* About */
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-image {
+        height: 250px;
+        width: 100%;
+    }
+    
+    /* Activities */
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Awards */
+    .award-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    /* Entry section */
+    .entry {
+        padding: 40px 0;
+    }
+    
+    /* Contact Form */
+    .contact-form-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .form-container, .map-container {
+        width: 100%;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    /* Sponsors */
+    .sponsors-grid {
+        gap: 20px;
+    }
+    
+    .sponsor-item {
+        max-width: 120px;
+    }
+    
+    /* QR Code */
+    .qr-code {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 30px 0;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+}
+
+/* Papildus maziem ekrāniem (piemēram, iPhone SE) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+    
+    .activity-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .btn, .btn-outline {
+        width: 100%;
+    }
+}
+/* Īpaši maziem ekrāniem (piemēram, 320px) */
+@media (max-width: 320px) {
+    body {
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .btn, .btn-outline {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    .section-title h2 {
+        font-size: 1.3rem;
+    }
+
+    .countdown-item {
+        min-width: 55px;
+        padding: 8px;
+    }
+
+    .countdown-number {
+        font-size: 1.3rem;
+    }
+
+    .countdown-label {
+        font-size: 0.65rem;
+    }
+
+    .activity-content h3 {
+        font-size: 1rem;
+    }
+
+    .qr-code {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sponsor-item {
+        max-width: 100px;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+
+    .about-image {
+        height: 200px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+}
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -603,146 +955,168 @@
                     <p><strong>Laiks:</strong> 2025. gada 7. jūnijs, 13:00-18:00</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Auto izstāde">
+                    <img src="landing1 (1).jpg" alt="Auto izstāde" style="width: 100%; height: auto; object-fit: cover;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Activities Section -->
-    <section class="section" id="activities">
-        <div class="container">
-            <div class="section-title">
-                <h2>Aktivitātes</h2>
+<!-- Aktivitātes sadaļa -->
+<section class="section" id="activities">
+    <div class="container">
+        <div class="section-title">
+            <h2>Aktivitātes</h2>
+        </div>
+        <div class="activities-grid">
+            <!-- Riepu ripināšana -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="riepas.jpg" alt="Riepu ripināšana">
+                </div>
+                <div class="activity-content">
+                    <h3>Riepu ripināšana</h3>
+                    <p>Riepu ripināšana 2 metri, uz sacensībām</p>
+                </div>
             </div>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Riepu ripināšana</h3>
-                        <p>Riepu ripināšana 2. metri, uz sacensībām</p>
-                    </div>
+            <!-- Pirmā medicīniskā palīdzība -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="medi.jpg" alt="Pirmā palīdzība">
                 </div>
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Pirmā medicīniskā</h3>
-                        <p>Pirmās medicīniskās palīdzības (apgriešana uz sānu), kā arī izvilkšana no auto, aptieciņas nosaukšana</p>
-                    </div>
+                <div class="activity-content">
+                    <h3>Pirmā medicīniskā palīdzība</h3>
+                    <p>Pirmās medicīniskās palīdzības (apgriešana uz sānu), kā arī izvilkšana no auto, aptieciņas nosaukšana</p>
                 </div>
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Trijstūra novietošana</h3>
-                    </div>
+            </div>
+            <!-- Trijstūra novietošana -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="tris.jpg" alt="Trijstūra novietošana">
                 </div>
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Virsbūves detaļas</h3>
-                        <p>Auto virsbūves detālu nosaukumi</p>
-                    </div>
+                <div class="activity-content">
+                    <h3>Trijstūra novietošana</h3>
                 </div>
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Bērnu programma">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Riepu mešana</h3>
-                    </div>
+            </div>
+            <!-- Virsbūves detaļas -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1350&q=80" alt="Auto detaļas">
                 </div>
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Auto šova">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Auto pulēšana</h3>
-                    </div>
+                <div class="activity-content">
+                    <h3>Virsbūves detaļas</h3>
+                    <p>Auto virsbūves detālu nosaukumi</p>
                 </div>
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80" alt="Motociklu izstāde">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Salona tīrīšana</h3>
-                    </div>
+            </div>
+            <!-- Riepu mešana -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="riepa.jpg" alt="Riepu mešana">
+                </div>
+                <div class="activity-content">
+                    <h3>Riepu mešana</h3>
+                </div>
+            </div>
+            <!-- Auto pulēšana -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="pule.jpg" alt="Auto pulēšana">
+                </div>
+                <div class="activity-content">
+                    <h3>Auto pulēšana</h3>
+                </div>
+            </div>
+            <!-- Salona tīrīšana -->
+            <div class="activity-card">
+                <div class="activity-image">
+                    <img src="salon.jpg" alt="Salona tīrīšana">
+                </div>
+                <div class="activity-content">
+                    <h3>Salona tīrīšana</h3>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Awards Section -->
-    <section class="section" id="awards">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nominācijas un balvas</h2>
-            </div>
-            <div class="awards-list">
-                <div class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div>
-                        <h3>Izgaismotākā</h3>
-                        <p>Galvenā balva par izgaismotāko auto pasākumā.</p>
-                    </div>
-                </div>
-                <div class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div>
-                        <h3>Zemākā</h3>
-                        <p>Balva par zemāko auto.</p>
-                    </div>
-                </div>
-                <div class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div>
-                        <h3>Augstākā</h3>
-                        <p>Balva par augstāko auto.</p>
-                    </div>
-                </div>
-                <div class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-motorcycle"></i>
-                    </div>
-                    <div>
-                        <h3>Audio sistēma</h3>
-                        <p>Balva par skaļāko audio sistēmu.</p>
-                    </div>
-                </div>
-                <div class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-motorcycle"></i>
-                    </div>
-                    <div>
-                        <h3>Izplūde</h3>
-                        <p>Balva par skaļāko izplūdi.</p>
-                    </div>
-                </div>
-                <div class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-motorcycle"></i>
-                    </div>
-                    <div>
-                        <h3>Skatītāju favorīts</h3>
-                        <p>Balva par skatītāju favorītu.</p>
-                    </div>
-                </div>
-            </div>
+<section class="section" id="awards">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nominācijas un balvas</h2>
+    </div>
+    <div class="awards-list">
+      
+      <!-- Izgaismotākā -->
+      <div class="award-item">
+        <div class="award-icon">
+          <i class="fas fa-lightbulb"></i> <!-- Gaisma simbolizē izgaismošanu -->
         </div>
-    </section>
+        <div>
+          <h3>Izgaismotākā</h3>
+          <p>Galvenā balva par izgaismotāko auto pasākumā.</p>
+        </div>
+      </div>
+
+      <!-- Zemākā -->
+<div class="award-item">
+  <div class="award-icon">
+    <i class="fas fa-arrow-down"></i> <!-- Bezmaksas ikona -->
+  </div>
+  <div>
+    <h3>Zemākā</h3>
+    <p>Balva par zemāko auto.</p>
+  </div>
+</div>
+
+<!-- Augstākā -->
+<div class="award-item">
+  <div class="award-icon">
+    <i class="fas fa-arrow-up"></i> <!-- Bezmaksas ikona -->
+  </div>
+  <div>
+    <h3>Augstākā</h3>
+    <p>Balva par augstāko auto.</p>
+  </div>
+</div>
+
+
+      <!-- Audio sistēma -->
+      <div class="award-item">
+        <div class="award-icon">
+          <i class="fas fa-volume-up"></i> <!-- Skaņa/audio -->
+        </div>
+        <div>
+          <h3>Audio sistēma</h3>
+          <p>Balva par skaļāko audio sistēmu.</p>
+        </div>
+      </div>
+
+      <!-- Izplūde -->
+      <div class="award-item">
+        <div class="award-icon">
+          <i class="fas fa-wind"></i> <!-- Simbolizē dūmus vai izplūdi -->
+        </div>
+        <div>
+          <h3>Izplūde</h3>
+          <p>Balva par skaļāko izplūdi.</p>
+        </div>
+      </div>
+
+      <!-- Skatītāju favorīts -->
+      <div class="award-item">
+        <div class="award-icon">
+          <i class="fas fa-heart"></i> <!-- Simbolizē skatītāju simpātijas -->
+        </div>
+        <div>
+          <h3>Skatītāju favorīts</h3>
+          <p>Balva par skatītāju favorītu.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- Entry Section -->
     <section class="entry" id="entry">
@@ -755,53 +1129,75 @@
     </section>
 
     <!-- Registration Form Section -->
-    <section class="section" id="registration">
-        <div class="container">
-            <div class="section-title">
-                <h2>Pieteikšanās izstādei</h2>
-            </div>
-            <div class="contact-form-container">
-                <div class="form-container">
-                    <form id="registrationForm" action="https://formspree.io/f/midnightrunners96@gmail.com" method="POST">
-                        <div class="form-group">
-                            <label for="name">Vārds, Uzvārds*</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-pasts*</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefona numurs*</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="participation">Dalības veids*</label>
-                            <select id="participation" name="participation" required>
-                                <option value="">Izvēlieties...</option>
-                                <option value="visitor">Viesis (apmeklētājs)</option>
-                                <option value="exhibitor">Izstādītājs (ar auto)</option>
-                                <option value="sponsor">Sponsors</option>
-                                <option value="volunteer">Brīvprātīgais</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="carDetailsGroup" style="display: none;">
-                            <label for="carDetails">Auto dati (marka, modelis, gads, modifikācijas)</label>
-                            <textarea id="carDetails" name="carDetails"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Jūsu jautājumi vai komentāri</label>
-                            <textarea id="message" name="message"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Nosūtīt pieteikumu</button>
-                    </form>
-                </div>
-                <div class="map-container">
-                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2039.615911335044!2d25.53641207718748!3d57.54062267354409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ebf9b1a9b4a2a1%3A0x7c9a5d1a1a1a1a1!2sV%C4%81verlaukums%2C%20Valmiera%2C%20LV-4201!5e0!3m2!1slv!2slv!4v1620000000000!5m2!1slv!2slv" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section" id="registration">
+  <div class="container">
+    <div class="section-title">
+      <h2>Pieteikšanās izstādei</h2>
+    </div>
+    <div class="contact-form-container">
+      <div class="form-container">
+        <form
+          id="registrationForm"
+          action="https://formspree.io/f/xwpogevn"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="name">Vārds, Uzvārds*</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-pasts*</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefona numurs*</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+
+          <div class="form-group">
+            <label for="participation">Dalības veids*</label>
+            <select id="participation" name="participation" required>
+              <option value="">Izvēlieties...</option>
+              <option value="visitor">Viesis (apmeklētājs)</option>
+              <option value="exhibitor">Izstādītājs (ar auto)</option>
+              <option value="sponsor">Sponsors</option>
+              <option value="volunteer">Brīvprātīgais</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="carDetailsGroup" style="display: none">
+            <label for="carDetails">Auto dati (marka, modelis, gads, modifikācijas)</label>
+            <textarea id="carDetails" name="carDetails"></textarea>
+          </div>
+
+          <div class="form-group" id="carImageGroup" style="display: none">
+            <label for="carImage">Auto bilde (jpg, png, max 5MB)</label>
+            <input type="file" id="carImage" name="carImage" accept="image/*" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Jūsu jautājumi vai komentāri</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Nosūtīt pieteikumu</button>
+        </form>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          id="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2039.615911335044!2d25.53641207718748!3d57.54062267354409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ebf9b1a9b4a2a1%3A0x7c9a5d1a1a1a1a1!2sV%C4%81verlaukums%2C%20Valmiera%2C%20LV-4201!5e0!3m2!1slv!2slv!4v1620000000000!5m2!1slv!2slv"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Sponsors Section -->
     <section class="section" id="sponsors">
@@ -811,90 +1207,80 @@
             </div>
             <div class="sponsors-grid">
                 <div class="sponsor-item">
-                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+1" alt="Sponsors 1">
-                </div>
-                <div class="sponsor-item">
-                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+2" alt="Sponsors 2">
-                </div>
-                <div class="sponsor-item">
-                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+3" alt="Sponsors 3">
-                </div>
-                <div class="sponsor-item">
-                    <img src="https://via.placeholder.com/200x100?text=SPONSOR+4" alt="Sponsors 4">
+                    <img src="midnightrunnersbalts.png" alt="Sponsors 1">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kontakti</h2>
-            </div>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="margin-bottom: 30px;">Vai jums ir jautājumi par pasākumu? Sazinieties ar mums!</p>
-                <div style="display: flex; justify-content: center; gap: 50px; margin-bottom: 40px;">
-                    <div>
-                        <h3 style="margin-bottom: 10px;">E-pasts</h3>
-                        <p>midnightrunners96@gmail.com</p>
-                    </div>
-                    <div>
-                        <h3 style="margin-bottom: 10px;">Telefons</h3>
-                        <p>+371 22320238</p>
-                    </div>
-                    <div>
-                        <h3 style="margin-bottom: 10px;">Sociālie tīkli</h3>
-                        <p>@midnightrunnerslatvija</p>
-                    </div>
-                </div>
-                <a href="#registration" class="btn">Reklāmas iespējas</a>
-            </div>
+<!-- Contact Section -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Kontakti</h2>
+    </div>
+    <div class="contact-content">
+      <p class="contact-description">Vai jums ir jautājumi par pasākumu? Sazinieties ar mums!</p>
+      <div class="contact-boxes">
+        <div class="contact-box">
+          <h3>E-pasts</h3>
+          <p>midnightrunners96@gmail.com</p>
         </div>
-    </section>
+        <div class="contact-box">
+          <h3>Telefons</h3>
+          <p>+371 22320238</p>
+        </div>
+        <div class="contact-box">
+          <h3>Sociālie tīkli</h3>
+          <p>@midnightrunnerslatvija</p>
+        </div>
+      </div>
+      <a href="#registration" class="btn">Reklāmas iespējas</a>
+    </div>
+  </div>
+</section>
+
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-logo"><span>ŠĶŪNINGS</span></div>
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/midnightrunnerslatvija"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/midnightrunnerslatvija/"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">© 2025 Auto Šķūninga Izstāde. Visas tiesības aizsargātas.</p>
         </div>
     </footer>
 
     <script>
-        // Countdown timer
-        function updateCountdown() {
-            const eventDate = new Date('2025-06-7T13:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerhtml = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
-            
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                document.getElementById('days').innerHTML = '00';
-                document.getElementById('hours').innerHTML = '00';
-                document.getElementById('minutes').innerHTML = '00';
-                document.getElementById('seconds').innerHTML = '00';
-            }
-        }
-        
-        const countdownTimer = setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
+       // Countdown timer uz 7. jūniju 2025. plkst. 13:00
+  function updateCountdown() {
+    const eventDate = new Date('2025-06-07T13:00:00+03:00').getTime(); // Latvija ir UTC+3 jūnijā
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0'); // ← te bija kļūda
+    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+      clearInterval(countdownTimer);
+      document.getElementById('days').innerHTML = '00';
+      document.getElementById('hours').innerHTML = '00';
+      document.getElementById('minutes').innerHTML = '00';
+      document.getElementById('seconds').innerHTML = '00';
+    }
+  }
+
+  const countdownTimer = setInterval(updateCountdown, 1000);
+  updateCountdown();
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -916,50 +1302,54 @@
             }
         });
         
-        // Show/hide car details field based on participation type
-        document.getElementById('participation').addEventListener('change', function() {
-            const carDetailsGroup = document.getElementById('carDetailsGroup');
-            if (this.value === 'exhibitor') {
-                carDetailsGroup.style.display = 'block';
-            } else {
-                carDetailsGroup.style.display = 'none';
-            }
-        });
-        
-        // Form submission
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Simple validation
-            if (!formData.get('name') || !formData.get('email') || !formData.get('phone') || !formData.get('participation')) {
-                alert('Lūdzu, aizpildiet visus obligātos laukus!');
-                return;
-            }
-            
-            // Send form data using Formspree
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Paldies! Jūsu pieteikums ir saņemts. Mēs ar Jums sazināsimies drīzākajā laikā.');
-                    this.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch(error => {
-                alert('Radās kļūda, lūdzu, mēģiniet vēlāk vai sazinieties ar mums caur e-pastu.');
-                console.error(error);
-            });
-        });
+// Rāda/paslēpj auto detaļas un bildes laukus atkarībā no izvēlētās dalības
+  document.getElementById('participation').addEventListener('change', function () {
+    const carDetailsGroup = document.getElementById('carDetailsGroup');
+    const carImageGroup = document.getElementById('carImageGroup');
+    if (this.value === 'exhibitor') {
+      carDetailsGroup.style.display = 'block';
+      carImageGroup.style.display = 'block';
+    } else {
+      carDetailsGroup.style.display = 'none';
+      carImageGroup.style.display = 'none';
+    }
+  });
+
+  // Formas apstrāde
+  document.getElementById('registrationForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = this;
+    const formData = new FormData(form);
+
+    // Vienkārša validācija
+    if (!formData.get('name') || !formData.get('email') || !formData.get('phone') || !formData.get('participation')) {
+      alert('Lūdzu, aizpildiet visus obligātos laukus!');
+      return;
+    }
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert('Paldies! Jūsu pieteikums ir saņemts. Mēs ar Jums sazināsimies drīzākajā laikā.');
+          form.reset();
+          document.getElementById('carDetailsGroup').style.display = 'none';
+          document.getElementById('carImageGroup').style.display = 'none';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch((error) => {
+        alert('Radās kļūda, lūdzu, mēģiniet vēlāk vai sazinieties ar mums caur e-pastu.');
+        console.error(error);
+      });
+  });
     </script>
 </body>
 </html>
