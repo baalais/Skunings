@@ -91,8 +91,8 @@
         /* Hero section */
         .hero {
             height: 80vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
-                        url('https://images.unsplash.com/photo-1514316703785-8b8a75509248?ixlib=rb-1.2.1&auto=format&fit-crop&w=1350&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('landing2 (1).jpg') no-repeat center center/cover;
             color: white;
             display: flex;
             align-items: center;
@@ -648,7 +648,7 @@
                     </div>
                     <div class="activity-content">
                         <h3>Virsbūves detaļas</h3>
-                        <p>Auto virsbūves detaļu nosaukumi</p>
+                        <p>Auto virsbūves detālu nosaukumi</p>
                     </div>
                 </div>
                 <div class="activity-card">
@@ -748,7 +748,7 @@
     <section class="entry" id="entry">
         <div class="container">
             <h2>Ieeja uz pasākumu</h2>
-            <p>Ieejas maksa ir ziedojums 5€, kas tiks novirzīta "Midnight Runners" Kluba attīstībai un nākotnes pasākumu organizēšanai. Bērniem līdz 12 gadu vecumam - ieeja bez maksas!</p>
+            <p>Ieejas maksa ir ziedojums, kas tiks novirzīta "Midnight Runners" Kluba attīstībai un nākotnes pasākumu organizēšanai. Bērniem līdz 12 gadu vecumam - ieeja bez maksas!</p>
             <p>Auto dalībniekiem ieeja bez maksas (obligāta iepriekšēja pieteikšanās).</p>
             <a href="#registration" class="btn">Pieteikties kā dalībnieks</a>
         </div>
@@ -822,19 +822,6 @@
                 <div class="sponsor-item">
                     <img src="https://via.placeholder.com/200x100?text=SPONSOR+4" alt="Sponsors 4">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- QR Code Section -->
-    <section class="qr-section" id="qr">
-        <div class="container">
-            <h2>Skenējiet QR kodu, lai saglabātu pasākuma informāciju</h2>
-            <div class="qr-container">
-                <div class="qr-code">
-                    ej.uz/skunings
-                </div>
-                <p>Auto Šķūninga Izstāde 2025</p>
             </div>
         </div>
     </section>
@@ -962,3 +949,17 @@
             })
             .then(response => {
                 if (response.ok) {
+                    alert('Paldies! Jūsu pieteikums ir saņemts. Mēs ar Jums sazināsimies drīzākajā laikā.');
+                    this.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                alert('Radās kļūda, lūdzu, mēģiniet vēlāk vai sazinieties ar mums caur e-pastu.');
+                console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>
