@@ -887,6 +887,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div id="successModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;justify-content:center;align-items:center;">
+  <div style="background:white;padding:2rem;border-radius:8px;max-width:500px;text-align:center;">
+    <h3>Paldies par pieteikumu!</h3>
+    <p>Jūsu pieteikums ir veiksmīgi saņemts.</p>
+    <p>Ieejas maksa ir ziedojums un ierašanās 13:00.</p>
+    <p>Ja esat kā izstādītājs, tad lūgums starp 12:00 un 13:00 ierasties.</p>
+    <button onclick="document.getElementById('successModal').style.display='none'" style="margin-top:1rem;padding:0.5rem 1rem;background:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;">
+      Aizvērt
+    </button>
+  </div>
+</div>
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -1128,7 +1139,7 @@
         </div>
     </section>
 
-    <!-- Registration Form Section -->
+<!-- Registration Form Section -->
 <section class="section" id="registration">
   <div class="container">
     <div class="section-title">
@@ -1137,11 +1148,16 @@
     <div class="contact-form-container">
       <div class="form-container">
         <form
-          id="registrationForm"
-          action="https://formspree.io/f/xwpogevn"
-          method="POST"
-          enctype="multipart/form-data"
-        >
+  id="registrationForm"
+  action="https://formsubmit.co/your-email@example.com" 
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="Jauns izstādes pieteikums">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html"> <!-- Optional thank you page -->
+          
           <div class="form-group">
             <label for="name">Vārds, Uzvārds*</label>
             <input type="text" id="name" name="name" required />
@@ -1312,78 +1328,101 @@
             }
         });
         
-// Rāda/paslēpj auto detaļas un bildes laukus
-  document.getElementById('participation').addEventListener('change', function () {
-    const carDetailsGroup = document.getElementById('carDetailsGroup');
-    const carImageGroup = document.getElementById('carImageGroup');
-    if (this.value === 'exhibitor') {
-      carDetailsGroup.style.display = 'block';
-      carImageGroup.style.display = 'block';
-    } else {
-      carDetailsGroup.style.display = 'none';
-      carImageGroup.style.display = 'none';
+// Show/hide car details and image fields
+document.getElementById('participation').addEventListener('change', function() {
+  const show = this.value === 'exhibitor';
+  document.getElementById('carDetailsGroup').style.display = show ? 'block' : 'none';
+  document.getElementById('carImageGroup').style.display = show ? 'block' : 'none';
+});
+
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('.submit-btn');
+  
+  // Validate form
+  if (!form.name.value.trim()) {
+    alert('Lūdzu, ievadiet vārdu un uzvārdu!');
+    return;
+  }
+  
+  if (!form.email.value.trim() || !/^\S+@\S+\.\S+$/.test(form.email.value)) {
+    alert('Lūdzu, ievadiet derīgu e-pasta adresi!');
+    return;
+  }
+  
+  if (!form.phone.value.trim() || !/^[0-9]{8,}$/.test(form.phone.value)) {
+    alert('Lūdzu, ievadiet derīgu telefona numuru (vismaz 8 cipari)!');
+    return;
+  }
+  
+  if (!form.participation.value) {
+    alert('Lūdzu, norādiet dalības veidu!');
+    return;
+  }
+
+  if (form.participation.value === 'exhibitor') {
+    if (!form.carDetails.value.trim()) {
+      alert('Lūdzu, norādiet auto datus!');
+      return;
     }
-  });
-
-  // Formas apstrāde ar uzlabojumiem
-  document.getElementById('registrationForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const form = this;
-    const submitBtn = form.querySelector('.submit-btn');
-    const originalBtnText = submitBtn.textContent;
     
-    try {
-      // Disable submit poga, lai novērstu dubultiesniegšanu
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Nosūta...';
-      
-      const formData = new FormData(form);
+    if (!form.carImage.files.length) {
+      alert('Lūdzu, pievienojiet auto bildi!');
+      return;
+    }
+    
+    const file = form.carImage.files[0];
+    if (!['image/jpeg','image/png','image/jpg'].includes(file.type)) {
+      alert('Atļautie formāti: JPG, PNG!');
+      return;
+    }
+    
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Maksimālais izmērs: 5MB!');
+      return;
+    }
+  }
 
-      // Validācija
-      if (!formData.get('name') || !formData.get('email') || !formData.get('phone') || !formData.get('participation')) {
-        throw new Error('Lūdzu, aizpildiet visus obligātos laukus!');
-      }
+  // Show loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Nosūta...';
 
-      // Faila izmēra validācija
-      const fileInput = document.getElementById('carImage');
-      if (fileInput.files.length > 0) {
-        const fileSize = fileInput.files[0].size / 1024 / 1024; // MB
-        if (fileSize > 5) {
-          throw new Error('Faila izmērs nedrīkst pārsniegt 5MB!');
-        }
-      }
+  // Create new FormData with all fields
+  const formData = new FormData(form);
+  
+  // Special handling for FormSubmit attachments
+  if (form.participation.value === 'exhibitor') {
+    formData.append('_attachment', form.carImage.files[0]);
+    formData.append('carImage_name', form.carImage.files[0].name);
+  }
 
-      // Nosūtām datus uz Formspree
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-
-      // Veiksmīga iesniegšana
-      alert(`Paldies par pieteikumu!\n\nIeejas maksa ir ziedojums un ierašanās 13:00.\nJa esat kā izstādītājs, tad lūgums starp 12:00 un 13:00 ierasties.`);
-      
-      // Atjaunojam formu
+  // Send form data
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Show success modal
+      document.getElementById('successModal').style.display = 'flex';
       form.reset();
       document.getElementById('carDetailsGroup').style.display = 'none';
       document.getElementById('carImageGroup').style.display = 'none';
-      
-    } catch (error) {
-      console.error('Kļūda:', error);
-      alert(error.message || 'Radās kļūda, lūdzu, mēģiniet vēlāk vai sazinieties ar mums caur e-pastu.');
-    } finally {
-      // Atjaunojam pogas stāvokli neatkarīgi no rezultāta
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
+    } else {
+      throw new Error('Sūtīšana neizdevās');
     }
+  })
+  .catch(error => {
+    alert('Kļūda: ' + error.message);
+    console.error('Error:', error);
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Nosūtīt pieteikumu';
   });
+});
     </script>
 </body>
 </html>
